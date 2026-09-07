@@ -1,0 +1,70 @@
+[
+  {
+    "id": 1,
+    "codigo": "TRP-2026-001",
+    "origen": "Bodega Central Providencia",
+    "destino": "Sucursal Providencia (Rock)",
+    "conductor": "Carlos Valenzuela",
+    "patente": "PJ-88-21",
+    "peso_kg": 450.0,
+    "capacidad_kg": 1200.0,
+    "estado": "En Tránsito",
+    "prioridad": "Alta",
+    "eta": "14:30 hrs",
+    "carga": [
+      "3x Baterías DW",
+      "10x Amplificadores Marshall"
+    ]
+  },
+  {
+    "id": 2,
+    "codigo": "TRP-2026-002",
+    "origen": "Bodega Central Providencia",
+    "destino": "Sucursal Mall Plaza Vespucio (DJ)",
+    "conductor": "Marcela Soto",
+    "patente": "KLRX-44",
+    "peso_kg": 180.0,
+    "capacidad_kg": 800.0,
+    "estado": "En Preparación",
+    "prioridad": "Media",
+    "eta": "17:00 hrs",
+    "carga": [
+      "4x Mesas Pioneer DDJ",
+      "20x Audífonos Sennheiser"
+    ]
+  },
+  {
+    "id": 3,
+    "codigo": "TRP-2026-003",
+    "origen": "Bodega Central Providencia",
+    "destino": "Franquicia Viña del Mar (Acústico)",
+    "conductor": "Esteban Morales",
+    "patente": "FRTY-12",
+    "peso_kg": 620.0,
+    "capacidad_kg": 600.0,
+    "estado": "Incidencia",
+    "prioridad": "Alta",
+    "eta": "Retrasado",
+    "carga": [
+      "15x Guitarras Fender",
+      "5x Teclados Yamaha"
+    ]
+  },
+  {
+    "id": 4,
+    "codigo": "TRP-2026-004",
+    "origen": "Bodega Central Providencia",
+    "destino": "Sucursal Centro (Cumbia y Reggaetón)",
+    "conductor": "Rodrigo Tapia",
+    "patente": "HW-99-10",
+    "peso_kg": 210.0,
+    "capacidad_kg": 1000.0,
+    "estado": "Entregado",
+    "prioridad": "Baja",
+    "eta": "11:15 hrs",
+    "carga": [
+      "6x Congas LP",
+      "12x Micrófonos Shure"
+    ]
+  }
+]

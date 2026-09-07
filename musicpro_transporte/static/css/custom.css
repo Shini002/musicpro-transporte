@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+    --goth-bg: #0d0814;
+    --goth-card: #1f1233;
+    --goth-row-dark: #160c26;
+    --goth-row-hover: #2e154d;
+    --goth-purple-neon: #c084fc;
+    --goth-purple-glow: rgba(192, 132, 252, 0.45);
+    --goth-silver-border: #8b7fa8;
+    --text-bright: #ffffff;
+    --text-sub: #d1cbe3;
+}
+
+body {
+    background: radial-gradient(circle at 50% 15%, #23103c 0%, var(--goth-bg) 80%);
+    color: var(--text-bright) !important;
+    font-family: 'Nunito', sans-serif;
+    min-height: 100vh;
+}
+
+/* Tipografía de títulos */
+h1, h2, h3, h4, h5, h6, .navbar-brand {
+    font-family: 'Cinzel', serif !important;
+    letter-spacing: 1.5px;
+    color: var(--text-bright) !important;
+}
+
+/* Regla general para textos descriptivos y etiquetas */
+.text-dark, .text-muted, p.text-muted, span.text-muted, small.text-muted {
+    color: var(--text-sub) !important;
+}
+
+/* Barra de navegación */
+.navbar {
+    background: rgba(15, 8, 26, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--goth-silver-border);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.85);
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px var(--goth-purple-glow);
+}
+
+.navbar-brand span {
+    color: var(--goth-purple-neon) !important;
+    text-shadow: 0 0 12px var(--goth-purple-neon);
+}
+
+.nav-link {
+    color: var(--text-sub) !important;
+    font-weight: 600;
+}
+
+.nav-link:hover {
+    color: #ffffff !important;
+    text-shadow: 0 0 10px #ffffff;
+}
+
+/* =================================================== */
+/* TARJETAS Y HOJA DE RUTA */
+/* =================================================== */
+.card {
+    background: var(--goth-card) !important;
+    border: 1px solid var(--goth-silver-border) !important;
+    border-radius: 10px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+    color: var(--text-bright) !important;
+}
+
+.card-header, .card-header.bg-white {
+    background: linear-gradient(180deg, #2b1447 0%, #1a0d2e 100%) !important;
+    border-bottom: 1px solid var(--goth-silver-border) !important;
+    color: var(--text-bright) !important;
+}
+
+.card-body {
+    color: var(--text-bright) !important;
+}
+
+/* Datos dentro de la ficha / hoja de ruta */
+.card-body small {
+    color: #c4b5fd !important;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.card-body strong, 
+.card-body span {
+    color: #ffffff !important;
+    font-size: 1rem;
+    display: inline-block;
+    margin-top: 2px;
+}
+
+.card-body code {
+    background-color: #12081f !important;
+    color: #38bdf8 !important;
+    border: 1px solid var(--goth-silver-border);
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+}
+
+hr {
+    border-color: rgba(139, 127, 168, 0.4) !important;
+    opacity: 1;
+}
+
+/* =================================================== */
+/* LISTA DE ITEMS (Instrumentos y Equipos) */
+/* =================================================== */
+.list-group, 
+.list-group-flush {
+    background: transparent !important;
+}
+
+.list-group-item {
+    background-color: #160c26 !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(139, 127, 168, 0.3) !important;
+    border-radius: 6px !important;
+    margin-bottom: 6px;
+    padding: 10px 14px !important;
+}
+
+.list-group-item i {
+    color: var(--goth-purple-neon) !important;
+}
+
+/* =================================================== */
+/* TABLAS */
+/* =================================================== */
+.table, .table-hover, .table-responsive {
+    background-color: var(--goth-card) !important;
+    color: var(--text-bright) !important;
+}
+
+.table thead th, .table-light th, .table-dark th {
+    background-color: #2b1447 !important;
+    color: #ffffff !important;
+    font-family: 'Cinzel', serif !important;
+    border-bottom: 2px solid var(--goth-silver-border) !important;
+    letter-spacing: 0.8px;
+}
+
+.table > :not(caption) > * > * {
+    background-color: var(--goth-row-dark) !important;
+    color: #f3e8ff !important;
+    border-bottom: 1px solid rgba(139, 127, 168, 0.3) !important;
+    vertical-align: middle;
+}
+
+.table-hover > tbody > tr:hover > * {
+    background-color: var(--goth-row-hover) !important;
+    color: #ffffff !important;
+}
+
+.table td strong, .table td div {
+    color: #ffffff !important;
+}
+
+/* KPIs */
+.kpi-card {
+    background: linear-gradient(145deg, #281343 0%, #150a24 100%) !important;
+    border: 1px solid var(--goth-silver-border) !important;
+    border-left: 5px solid var(--goth-purple-neon) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+}
+
+.kpi-card span {
+    color: #ddd6fe !important;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+.kpi-card h2 {
+    color: #ffffff !important;
+    text-shadow: 0 0 15px var(--goth-purple-neon);
+}
+
+/* Insignias */
+.badge.bg-light {
+    background-color: #2b1548 !important;
+    color: #ffffff !important;
+    border: 1px solid var(--goth-silver-border) !important;
+}
+
+/* Insignia de estado (Hoja de ruta) */
+.badge.bg-warning {
+    background: linear-gradient(135deg, #facc15 0%, #eab308 100%) !important;
+    color: #0b0712 !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px;
+    border: 1px solid #fef08a !important;
+    text-shadow: none !important;
+}
+
+.badge.bg-primary { background-color: #7c3aed !important; color: #fff !important; }
+.badge.bg-danger { background-color: #be123c !important; color: #fff !important; }
+.badge.bg-success { background-color: #059669 !important; color: #fff !important; }
+.badge.bg-secondary { background-color: #4b5563 !important; color: #fff !important; }
+
+/* Botones */
+.btn-warning {
+    background: linear-gradient(135deg, #9333ea 0%, #6b21a8 100%) !important;
+    color: #ffffff !important;
+    border: 1px solid #c084fc !important;
+    box-shadow: 0 0 12px var(--goth-purple-glow);
+    font-weight: 700;
+}
+
+.btn-warning:hover {
+    background: linear-gradient(135deg, #a855f7 0%, #7e22ce 100%) !important;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.8);
+    color: #ffffff !important;
+}
+
+.btn-secondary, .btn-outline-dark, .btn-outline-secondary {
+    border: 1px solid var(--goth-silver-border) !important;
+    color: #ffffff !important;
+    background-color: rgba(23, 13, 36, 0.8) !important;
+}
+
+.btn-secondary:hover, .btn-outline-dark:hover, .btn-outline-secondary:hover {
+    background-color: var(--goth-purple-neon) !important;
+    border-color: var(--goth-purple-neon) !important;
+    color: #000000 !important;
+}
+
+/* Formularios */
+.form-control {
+    background-color: #12081f !important;
+    border: 1px solid var(--goth-silver-border) !important;
+    color: #ffffff !important;
+}
+
+.form-control:focus {
+    background-color: #170b28 !important;
+    border-color: var(--goth-purple-neon) !important;
+    box-shadow: 0 0 10px var(--goth-purple-glow) !important;
+    color: #ffffff !important;
+}
+
+.form-control::placeholder {
+    color: #8c7ea9 !important;
+}
+
+/* Footer */
+footer {
+    background-color: #08040d !important;
+    border-top: 1px solid rgba(139, 127, 168, 0.3) !important;
+    color: #a79cb8 !important;
+}
+
+/* =================================================== */
+/* ESTILO PARA EL SELECTOR DESPLEGABLE (ESTADOS) */
+/* =================================================== */
+.form-select {
+    background-color: #12081f !important;
+    border: 1px solid var(--goth-silver-border) !important;
+    color: #ffffff !important;
+}
+
+.form-select:focus {
+    background-color: #170b28 !important;
+    border-color: var(--goth-purple-neon) !important;
+    box-shadow: 0 0 10px var(--goth-purple-glow) !important;
+    color: #ffffff !important;
+}
+
+.form-select option {
+    background-color: #170d24;
+    color: #ffffff;
+}
