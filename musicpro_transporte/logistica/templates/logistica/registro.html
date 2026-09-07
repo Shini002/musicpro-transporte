@@ -1,0 +1,59 @@
+{% extends 'logistica/base.html' %}
+{% block content %}
+<div class="row justify-content-center py-3">
+    <div class="col-md-7 col-lg-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-header text-center py-3">
+                <i class="bi bi-person-plus-fill display-6" style="color: #c084fc;"></i>
+                <h4 class="fw-bold mb-0 mt-2">Registro de Administrador</h4>
+                <small class="text-muted">Alta de personal interno de logística y flota</small>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Nombre Completo</label>
+                        <input type="text" name="nombre" class="form-control" placeholder="Ej: Isidora Olguín" required>
+                    </div>
+
+                    <div class="row g-2 mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Nombre de Usuario</label>
+                            <input type="text" name="usuario" class="form-control" placeholder="Ej: iolguin" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Cargo / Área</label>
+                            <select name="cargo" class="form-select">
+                                <option value="Jefe de Operaciones">Jefe de Operaciones</option>
+                                <option value="Supervisor de Flota">Supervisor de Flota</option>
+                                <option value="Coordinador de Bodega">Coordinador de Bodega</option>
+                                <option value="Monitoreo en Ruta">Monitoreo en Ruta</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Correo Corporativo</label>
+                        <input type="email" name="email" class="form-control" placeholder="usuario@musicpro.cl" required>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Contraseña de Acceso</label>
+                        <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+                        <small class="text-muted">Almacenamiento simulado en JSON sin BD externa.</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-warning w-100 py-2 fw-bold mb-3">
+                        Registrar Administrador
+                    </button>
+                    
+                    <div class="text-center">
+                        <span class="small text-muted">¿Ya tienes cuenta? </span>
+                        <a href="{% url 'login' %}" class="small fw-bold" style="color: #c084fc;">Iniciar Sesión aquí</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

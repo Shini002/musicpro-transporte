@@ -1,0 +1,50 @@
+{% extends 'logistica/base.html' %}
+{% block content %}
+<div class="row justify-content-center py-4">
+    <div class="col-md-6 col-lg-5">
+        <div class="card shadow-lg border-0">
+            <div class="card-header text-center py-3">
+                <i class="bi bi-shield-lock-fill display-6" style="color: #c084fc;"></i>
+                <h4 class="fw-bold mb-0 mt-2">Acceso Administrador</h4>
+                <small class="text-muted">Gestión Interna de Flota y Rutas</small>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Usuario Administrador</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-dark border-secondary text-white"><i class="bi bi-person"></i></span>
+                            <input type="text" name="usuario" class="form-control" placeholder="Ej: admin_flota" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label class="form-label fw-semibold">Clave de Seguridad (Simulada)</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-dark border-secondary text-white"><i class="bi bi-key"></i></span>
+                            <input type="password" name="password" class="form-control" placeholder="••••••••" value="admin2026">
+                        </div>
+                        <small class="text-muted">Simulación sin BD según pauta de evaluación.</small>
+                    </div>
+
+                    <button type="submit" class="btn btn-warning w-100 py-2 fw-bold mb-3">
+                        Ingresar al Panel de Control
+                    </button>
+                    
+                    <div class="text-center mt-2">
+                        <span class="small text-muted">¿Nuevo administrador? </span>
+                        <a href="{% url 'registro' %}" class="small fw-bold" style="color: #c084fc;">Regístrate aquí</a>
+                    </div>
+                    
+                    <div class="text-center mt-3">
+                        <a href="{% url 'landing' %}" class="small text-muted text-decoration-none">
+                            <i class="bi bi-arrow-left"></i> Volver a la página principal
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

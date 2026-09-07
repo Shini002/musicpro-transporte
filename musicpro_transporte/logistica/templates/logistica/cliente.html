@@ -1,0 +1,85 @@
+{% extends 'logistica/base.html' %}
+{% block content %}
+<div class="row justify-content-center py-3">
+    <div class="col-lg-8">
+        
+        <!-- Buscador de Código -->
+        <div class="card shadow-lg p-4 mb-4 border-2" style="border-color: #8b7fa8 !important;">
+            <div class="text-center mb-3">
+                <i class="bi bi-box-seam display-5" style="color: #c084fc;"></i>
+                <h3 class="fw-bold mt-2">Seguimiento de Envío</h3>
+                <p class="text-muted small">Ingresa el código de despacho entregado por la tienda (Ej: <code>TRP-2026-001</code>)</p>
+            </div>
+            
+            <form method="GET" action="{% url 'cliente_tracking' %}">
+                <div class="input-group input-group-lg">
+                    <input type="text" name="codigo" class="form-control text-uppercase" placeholder="Código de Despacho..." value="{{ codigo_buscado }}" required>
+                    <button class="btn btn-warning px-4 fw-bold" type="submit">
+                        <i class="bi bi-search me-1"></i> Rastrear
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Resultado de Búsqueda -->
+        {% if busqueda_realizada %}
+            {% if despacho %}
+                <!-- Ficha del Despacho Encontrado -->
+                <div class="card shadow-lg border-0">
+                    <div class="card-header py-3 d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0 fw-bold"><i class="bi bi-geo-alt me-1"></i> Guía: {{ despacho.codigo }}</h5>
+                        {% if despacho.estado == 'En Tránsito' %}
+                            <span class="badge bg-primary">En Tránsito</span>
+                        {% elif despacho.estado == 'Incidencia' %}
+                            <span class="badge bg-danger">Incidencia en Ruta</span>
+                        {% elif despacho.estado == 'Entregado' %}
+                            <span class="badge bg-success">Entregado</span>
+                        {% else %}
+                            <span class="badge bg-warning text-dark">{{ despacho.estado }}</span>
+                        {% endif %}
+                    </div>
+                    <div class="card-body p-4">
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <small class="text-muted d-block">Punto de Origen</small>
+                                <strong>{{ despacho.origen }}</strong>
+                            </div>
+                            <div class="col-sm-6">
+                                <small class="text-muted d-block">Destino</small>
+                                <strong>{{ despacho.destino }}</strong>
+                            </div>
+                            <div class="col-sm-6">
+                                <small class="text-muted d-block">Conductor Asignado</small>
+                                <div>{{ despacho.conductor }}</div>
+                            </div>
+                            <div class="col-sm-6">
+                                <small class="text-muted d-block">Estimación de Llegada (ETA)</small>
+                                <span class="badge bg-light border">{{ despacho.eta }}</span>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h6 class="fw-bold mb-3"><i class="bi bi-boxes me-2"></i>Instrumentos en este Traslado:</h6>
+                        <ul class="list-group list-group-flush">
+                            {% for item in despacho.carga %}
+                                <li class="list-group-item bg-transparent text-white border-secondary">
+                                    <i class="bi bi-check2-circle text-purple me-2" style="color: #c084fc;"></i> {{ item }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% else %}
+                <!-- Mensaje de no encontrado -->
+                <div class="alert alert-warning text-center shadow-sm">
+                    <i class="bi bi-exclamation-triangle-fill display-6 d-block mb-2"></i>
+                    <strong>No se encontró ningún despacho con el código "{{ codigo_buscado }}".</strong>
+                    <div class="small mt-1">Verifica el código e inténtalo nuevamente.</div>
+                </div>
+            {% endif %}
+        {% endif %}
+
+    </div>
+</div>
+{% endblock %}
