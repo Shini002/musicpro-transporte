@@ -1,0 +1,47 @@
+{% extends 'logistica/base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8 col-lg-7">
+        <div class="card shadow-sm border-0">
+            <div class="card-header bg-dark text-white py-3">
+                <h5 class="card-title mb-0">📦 Nueva Orden de Traslado y Despacho</h5>
+            </div>
+            <div class="card-body p-4">
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Código Seguimiento</label>
+                            <input type="text" name="codigo" class="form-control" placeholder="TRP-2026-005" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Sucursal Destino</label>
+                            <input type="text" name="destino" class="form-control" placeholder="Sucursal Rock Providencia" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Conductor Asignado</label>
+                            <input type="text" name="conductor" class="form-control" placeholder="Nombre completo" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Patente del Vehículo</label>
+                            <input type="text" name="patente" class="form-control" placeholder="Ej: AB-CD-12" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Peso Total Carga (kg)</label>
+                            <input type="number" step="0.1" name="peso" class="form-control" placeholder="Ej: 350.0" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label fw-semibold">Capacidad Máx. Vehículo (kg)</label>
+                            <input type="number" step="0.1" name="capacidad" class="form-control" placeholder="Ej: 800.0" required>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-end gap-2 mt-4">
+                        <a href="{% url 'despachos' %}" class="btn btn-outline-secondary">Cancelar</a>
+                        <button type="submit" class="btn btn-warning fw-semibold">Guardar y Asignar Ruta</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

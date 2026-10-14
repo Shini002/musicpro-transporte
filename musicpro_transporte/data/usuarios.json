@@ -1,0 +1,10 @@
+[
+    {
+      "id": 1,
+      "nombre": "Administrador General",
+      "usuario": "admin",
+      "email": "logistica@musicpro.cl",
+      "cargo": "Jefe de Operaciones y Flota",
+      "rol": "Administrador"
+    }
+  ]

@@ -1,0 +1,27 @@
+{% extends 'logistica/base.html' %}
+{% block content %}
+<div class="row align-items-center py-5">
+    <div class="col-lg-7 text-center text-lg-start mb-4 mb-lg-0">
+        <span class="badge bg-light mb-3">SISTEMA LOGÍSTICO TOUR 2026</span>
+        <h1 class="display-4 fw-bold mb-3">MUSIC PRO <span style="color: #c084fc;">LOGÍSTICA</span></h1>
+        <p class="lead text-sub mb-4">
+            Plataforma centralizada para la coordinación de rutas, transporte de instrumentos y abastecimiento en tiempo real a tiendas y franquicias.
+        </p>
+        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+            <a href="{% url 'login' %}" class="btn btn-warning btn-lg px-4">
+                <i class="bi bi-box-arrow-in-right me-2"></i> Acceso al Sistema
+            </a>
+            <a href="{% url 'cliente_tracking' %}" class="btn btn-outline-secondary btn-lg px-4">
+                <i class="bi bi-search me-2"></i> Seguimiento Clientes
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-5 text-center">
+        <div class="card p-4 shadow-lg border-2" style="border-color: #8b7fa8 !important;">
+            <i class="bi bi-truck display-1 mb-3" style="color: #c084fc;"></i>
+            <h4 class="fw-bold mb-2">Despachos Seguros</h4>
+            <p class="small text-muted mb-0">Control estricto de cubicaje, incidentes en carretera y tiempos estimados de llegada.</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

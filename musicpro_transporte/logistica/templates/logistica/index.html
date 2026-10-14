@@ -1,0 +1,75 @@
+{% extends 'logistica/base.html' %}
+{% block content %}
+<div class="mb-4">
+    <h1 class="h3 fw-bold text-dark">Panel de Monitoreo - Flota y Despachos</h1>
+    <p class="text-muted">Estado del abastecimiento desde Bodega Central a tiendas en tiempo real.</p>
+</div>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-3">
+        <div class="card shadow-sm kpi-card border-primary p-3">
+            <span class="text-muted small fw-bold">TOTAL ÓRDENES</span>
+            <h2 class="fw-bold mb-0 text-primary">{{ total_despachos }}</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm kpi-card border-info p-3">
+            <span class="text-muted small fw-bold">EN TRÁNSITO</span>
+            <h2 class="fw-bold mb-0 text-info">{{ en_transito_count }}</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm kpi-card border-danger p-3">
+            <span class="text-muted small fw-bold">INCIDENCIAS EN RUTA</span>
+            <h2 class="fw-bold mb-0 text-danger">{{ incidencias_count }}</h2>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card shadow-sm kpi-card border-success p-3">
+            <span class="text-muted small fw-bold">ENTREGAS COMPLETADAS</span>
+            <h2 class="fw-bold mb-0 text-success">{{ entregados_count }}</h2>
+        </div>
+    </div>
+</div>
+
+<div class="card shadow-sm border-0">
+    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+        <h5 class="mb-0 fw-bold">Despachos Recientes</h5>
+        <a href="{% url 'despachos' %}" class="btn btn-outline-dark btn-sm">Ver Todos</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Código</th>
+                    <th>Destino</th>
+                    <th>Conductor</th>
+                    <th>ETA</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for d in ultimos_despachos %}
+                <tr>
+                    <td><strong>{{ d.codigo }}</strong></td>
+                    <td>{{ d.destino }}</td>
+                    <td>{{ d.conductor }}</td>
+                    <td><span class="badge bg-light text-dark border">{{ d.eta }}</span></td>
+                    <td>
+                        {% if d.estado == 'En Tránsito' %}
+                            <span class="badge bg-info">En Tránsito</span>
+                        {% elif d.estado == 'Incidencia' %}
+                            <span class="badge bg-danger">Incidencia</span>
+                        {% elif d.estado == 'Entregado' %}
+                            <span class="badge bg-success">Entregado</span>
+                        {% else %}
+                            <span class="badge bg-secondary">{{ d.estado }}</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

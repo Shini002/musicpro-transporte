@@ -1,0 +1,15 @@
+# Entornos virtuales
+venv/
+.venv/
+env/
+musicpro_transporte/venv/
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos del sistema / IDE
+.vscode/
+.DS_Store
+Thumbs.db
